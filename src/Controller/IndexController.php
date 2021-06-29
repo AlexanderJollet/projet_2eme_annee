@@ -18,7 +18,7 @@ class IndexController extends AbstractController
 {
 
     /**
-     * @Route("/", name="vehicule_index", methods={"GET"})
+     * @Route("/home", name="vehicule_index", methods={"GET"})
      */
     public function index(VehiculeRepository $vehiculeRepository): Response
     {
@@ -26,6 +26,7 @@ class IndexController extends AbstractController
             'vehicules' => $vehiculeRepository->findAll(),
         ]);
     }
+}
 
      /**
      * @Route("vehicule/voiture", name="voituredispo", methods={"GET"})
