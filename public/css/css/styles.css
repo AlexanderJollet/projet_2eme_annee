@@ -145,7 +145,12 @@ address {
   font-style: normal;
   line-height: inherit;
 }
-
+td {
+  text-align: center;
+}
+tr {
+  text-align: center;
+}
 ol,
 ul {
   padding-left: 2rem;

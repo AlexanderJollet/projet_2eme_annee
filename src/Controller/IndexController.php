@@ -27,30 +27,26 @@ class IndexController extends AbstractController
         ]);
     }
 
+     /**
+     * @Route("vehicule/voiture", name="voituredispo", methods={"GET"})
+     */
+    public function voituredispo(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('vehicule/indexvoiture.html.twig', [
+            'vehicules' => $vehiculeRepository->findBy(['type' => 'voiture']),
+        ]);
+    }
 
-   /**
-      * @Route("/vehicule/save")
-      */
-     public function save() {
-       $entityManager = $this->getDoctrine()->getManager();
 
-       $vehicule = new Vehicule();
-       $vehicule->setType('Scooter');
-       $vehicule->setMarque("BMW");
-       $vehicule->setModele("2");
-       $vehicule->setNumeroSerie("dezcn1342");
-       $vehicule->setCouleur("blanc");
-       $vehicule->setPLaqueImmatriculation("12-BMW-34");
-       $vehicule->setNbKilometre(12045);
-       $vehicule->setDateAchat('2012-09-01');
-       $vehicule->setPrixAchat(19999);
-       $vehicule->setDureeLocation(2);
+    /**
+     * @Route("vehicule/scooter", name="scooterdispo", methods={"GET"})
+     */
+    public function scooterdispo(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('vehicule/indexscooter.html.twig', [
+            'vehicules' => $vehiculeRepository->findBy(['type' => 'Scooter']),
+        ]);
+    }
 
-      
-       $entityManager->persist($vehicule);
-       $entityManager->flush();
-
-       return new Response('Article enregisté avec id   '.$vehicule->getId());
-        }
 
     }
