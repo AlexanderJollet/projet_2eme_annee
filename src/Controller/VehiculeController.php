@@ -83,4 +83,16 @@ class VehiculeController extends AbstractController
 
         return $this->redirectToRoute('vehicule_index');
     }
+
+    /**
+     * @Route("/", name="vehiculedispo", methods={"GET"})
+     */
+    public function vehiculedispo(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('vehicule/indexall.html.twig', [
+            'vehicules' => $vehiculeRepository->findAll(),
+        ]);
+    }
+
+   
 }

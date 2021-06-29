@@ -27,3 +27,27 @@ class IndexController extends AbstractController
         ]);
     }
 }
+
+     /**
+     * @Route("vehicule/voiture", name="voituredispo", methods={"GET"})
+     */
+    public function voituredispo(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('vehicule/indexvoiture.html.twig', [
+            'vehicules' => $vehiculeRepository->findBy(['type' => 'voiture']),
+        ]);
+    }
+
+
+    /**
+     * @Route("vehicule/scooter", name="scooterdispo", methods={"GET"})
+     */
+    public function scooterdispo(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('vehicule/indexscooter.html.twig', [
+            'vehicules' => $vehiculeRepository->findBy(['type' => 'Scooter']),
+        ]);
+    }
+
+
+    }

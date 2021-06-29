@@ -1,51 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Vehicule index{% endblock %}
+{% block title %}Offres disponibles :{% endblock %}
 
 {% block body %}
-    <h1>Vehicule index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Type</th>
-                <th>Marque</th>
-                <th>Modele</th>
-                <th>Numeroserie</th>
-                <th>Couleur</th>
-                <th>Plaqueimmatriculation</th>
-                <th>Nbkilometre</th>
-                <th>Dateachat</th>
-                <th>Prixachat</th>
-                <th>Dureelocation</th>
-                <th>actions</th>
-            </tr>
-        </thead>
+    <h1>Nos offres</h1>
         <tbody>
         {% for vehicule in vehicules %}
-            <tr>
-                <td>{{ vehicule.id }}</td>
-                <td>{{ vehicule.type }}</td>
-                <td>{{ vehicule.marque }}</td>
-                <td>{{ vehicule.modele }}</td>
-                <td>{{ vehicule.numeroserie }}</td>
-                <td>{{ vehicule.couleur }}</td>
-                <td>{{ vehicule.plaqueimmatriculation }}</td>
-                <td>{{ vehicule.nbkilometre }}</td>
-                <td>{{ vehicule.dateachat }}</td>
-                <td>{{ vehicule.prixachat }}</td>
-                <td>{{ vehicule.dureelocation }}</td>
-                <td>
-                    <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}">show</a>
-                    <a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}">edit</a>
-                </td>
-            </tr>
         {% else %}
             <tr>
-                <td colspan="12">no records found</td>
+                <td colspan="12">Nous n'avons aucune offres actuellement</td>
             </tr>
         {% endfor %}
+        <tr>
+            <td> <a href="{{ path('voituredispo')}}">Voitures</a> </td>
+        </tr>
+        <tr>
+            <td> <a href="{{ path('scooterdispo')}}">Scooter</a></td>
+        </tr>
+        <tr>
+            <td> <a href="{{ path('vehiculedispo')}}">Toutes nos offres</a> </td>
+        </tr>
+        
+        
         </tbody>
     </table>
 
