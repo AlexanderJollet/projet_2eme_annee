@@ -26,7 +26,6 @@ class IndexController extends AbstractController
             'vehicules' => $vehiculeRepository->findAll(),
         ]);
     }
-}
 
      /**
      * @Route("vehicule/voiture", name="voituredispo", methods={"GET"})
