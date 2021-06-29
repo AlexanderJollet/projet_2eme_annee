@@ -35,7 +35,7 @@ class Vehicule
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $numero_serie;
+    private $numeroserie;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -45,27 +45,27 @@ class Vehicule
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $plaque_immatriculation;
+    private $plaqueimmatriculation;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $nb_kilometre;
+    private $nbkilometre;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $date_achat;
+    private $dateachat;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $prix_achat;
+    private $prixachat;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $duree_location;
+    private $dureelocation;
 
 
     public function getId(): ?int
@@ -109,14 +109,14 @@ class Vehicule
         return $this;
     }
 
-    public function getNumero_Serie(): ?string
+    public function getNumeroserie(): ?string
     {
-        return $this->numero_serie;
+        return $this->numeroserie;
     }
 
-    public function setNumero_Serie(string $numero_serie): self
+    public function setNumeroserie(string $numeroserie): self
     {
-        $this->numero_serie = $numero_serie;
+        $this->numeroserie = $numeroserie;
 
         return $this;
     }
@@ -133,62 +133,62 @@ class Vehicule
         return $this;
     }
 
-    public function getPlaque_Immatriculation(): ?string
+    public function getPlaqueImmatriculation(): ?string
     {
-        return $this->plaque_immatriculation;
+        return $this->plaqueimmatriculation;
     }
 
-    public function setPlaque_Immatriculation(string $plaque_immatriculation): self
+    public function setPlaqueImmatriculation(string $plaqueimmatriculation): self
     {
-        $this->plaque_immatriculation = $plaque_immatriculation;
+        $this->plaqueimmatriculation = $plaqueimmatriculation;
 
         return $this;
     }
 
-    public function getNb_Kilometre(): ?int
+    public function getNbKilometre(): ?int
     {
-        return $this->nb_kilometre;
+        return $this->nbkilometre;
     }
 
-    public function setNb_Kilometre(int $nb_kilometre): self
+    public function setNbKilometre(int $nbkilometre): self
     {
-        $this->nb_kilometre = $nb_kilometre;
+        $this->nbkilometre = $nbkilometre;
 
         return $this;
     }
 
-    public function getDate_Achat(): string
+    public function getDateAchat(): ?string
     {
-        return $this->date_achat;
+        return $this->dateachat;
     }
 
-    public function setDate_Achat(string $date_achat): self
+    public function setDateAchat(string $dateachat): self
     {
-        $this->date_achat = $date_achat;
+        $this->dateachat = $dateachat;
 
         return $this;
     }
 
-    public function getPrix_Achat(): ?int
+    public function getPrixAchat(): ?int
     {
-        return $this->prix_achat;
+        return $this->prixachat;
     }
 
-    public function setPrix_Achat(int $prix_achat): self
+    public function setPrixAchat(int $prixachat): self
     {
-        $this->prix_achat = $prix_achat;
+        $this->prixachat = $prixachat;
 
         return $this;
     }
 
-    public function getDuree_Location(): ?int
+    public function getDureeLocation(): ?int
     {
-        return $this->duree_location;
+        return $this->dureelocation;
     }
 
-    public function setDuree_Location(int $duree_location): self
+    public function setDureeLocation(int $dureelocation): self
     {
-        $this->duree_location = $duree_location;
+        $this->dureelocation = $dureelocation;
 
         return $this;
     }

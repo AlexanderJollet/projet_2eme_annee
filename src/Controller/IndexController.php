@@ -2,7 +2,6 @@
 namespace App\Controller;
 
 use App\Entity\Vehicule;
-
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,21 +11,22 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\DateTime;
-
+use App\Form\Vehicule1Type;
+use App\Repository\VehiculeRepository;
 
 class IndexController extends AbstractController
 {
 
-          /**
-     *@Route("/",name="vehicule_list")
+    /**
+     * @Route("/", name="vehicule_index", methods={"GET"})
      */
-  public function home()
-  {
-    //récupérer tous les vehicules de la table article de la BD
-    // et les mettre dans le tableau $vehicules
-    $vehicules= $this->getDoctrine()->getRepository(Vehicule::class)->findAll();
-    return  $this->render('vehicule/index.html.twig',['vehicules' => $vehicules]);  
-  }
+    public function index(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('vehicule/index.html.twig', [
+            'vehicules' => $vehiculeRepository->findAll(),
+        ]);
+    }
+
 
    /**
       * @Route("/vehicule/save")
@@ -38,13 +38,13 @@ class IndexController extends AbstractController
        $vehicule->setType('Scooter');
        $vehicule->setMarque("BMW");
        $vehicule->setModele("2");
-       $vehicule->setNumero_Serie("dezcn1342");
+       $vehicule->setNumeroSerie("dezcn1342");
        $vehicule->setCouleur("blanc");
-       $vehicule->setPLaque_Immatriculation("12-BMW-34");
-       $vehicule->setNb_Kilometre(12045);
-       $vehicule->setDate_Achat('2012-09-01');
-       $vehicule->setPrix_Achat(19999);
-       $vehicule->setDuree_Location(2);
+       $vehicule->setPLaqueImmatriculation("12-BMW-34");
+       $vehicule->setNbKilometre(12045);
+       $vehicule->setDateAchat('2012-09-01');
+       $vehicule->setPrixAchat(19999);
+       $vehicule->setDureeLocation(2);
 
       
        $entityManager->persist($vehicule);

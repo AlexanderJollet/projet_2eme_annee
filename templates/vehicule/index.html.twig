@@ -1,46 +1,53 @@
 {% extends 'base.html.twig' %}
-{% block title%} Liste des vehicules{% endblock %}
+
+{% block title %}Vehicule index{% endblock %}
 
 {% block body %}
- {% if vehicules %}
-    <table id="vehicules" class="table table-striped">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>type</th>
-          <th>marque</th>
-          <th>modele</th>
-          <th>numero de serie</th>
-          <th>couleur</th>
-          <th>plaque immatriculation</th>
-          <th>nb de kilometres</th>
-          <th>date d'achat</th>
-          <th>prix d'achat</th>
-          <th>Duree de location</th>
-        </tr>
-      </thead>
-      <tbody>
+    <h1>Vehicule index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Marque</th>
+                <th>Modele</th>
+                <th>Numeroserie</th>
+                <th>Couleur</th>
+                <th>Plaqueimmatriculation</th>
+                <th>Nbkilometre</th>
+                <th>Dateachat</th>
+                <th>Prixachat</th>
+                <th>Dureelocation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
         {% for vehicule in vehicules %}
-          <tr>
-            <td>{{ vehicule.id }}</td>
-            <td>{{ vehicule.type }}</td>
-            <td>{{ vehicule.marque }}</td>
-            <td>{{ vehicule.modele }}</td>
-            <td>{{ vehicule.numero_serie }}</td>
-            <td>{{ vehicule.couleur }}</td>
-            <td>{{ vehicule.plaque_immatriculation }}</td>
-            <td>{{ vehicule.nb_kilometre }}</td>
-            <td>{{ vehicule.date_achat }}</td>
-            <td>{{ vehicule.prix_achat }}</td>
-            <td>{{ vehicule.duree_location }}</td>
-           <td>
-              <a href="/vehicule/{{ vehicule.id }}" class="btn btn-dark">Détails</a>
-            </td>
-          </tr>
+            <tr>
+                <td>{{ vehicule.id }}</td>
+                <td>{{ vehicule.type }}</td>
+                <td>{{ vehicule.marque }}</td>
+                <td>{{ vehicule.modele }}</td>
+                <td>{{ vehicule.numeroserie }}</td>
+                <td>{{ vehicule.couleur }}</td>
+                <td>{{ vehicule.plaqueimmatriculation }}</td>
+                <td>{{ vehicule.nbkilometre }}</td>
+                <td>{{ vehicule.dateachat }}</td>
+                <td>{{ vehicule.prixachat }}</td>
+                <td>{{ vehicule.dureelocation }}</td>
+                <td>
+                    <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}">show</a>
+                    <a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
         {% endfor %}
-      </tbody>
+        </tbody>
     </table>
-  {% else %}
-    <p>Aucun vehicules</p>
-  {% endif %} 
+
+    <a href="{{ path('vehicule_new') }}">Create new</a>
 {% endblock %}
