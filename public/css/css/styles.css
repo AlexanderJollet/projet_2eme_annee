@@ -4426,6 +4426,7 @@ textarea.form-control-lg {
 
 .card-title {
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .card-subtitle {
@@ -4488,7 +4489,9 @@ textarea.form-control-lg {
 .card-img,
 .card-img-top,
 .card-img-bottom {
-  width: 100%;
+  width: 550px ;
+  height: 400px ;
+  margin-left: 15px;
 }
 
 .card-img,
