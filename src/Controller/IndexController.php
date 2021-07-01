@@ -18,7 +18,7 @@ class IndexController extends AbstractController
 {
 
     /**
-     * @Route("/home", name="vehicule_index", methods={"GET"})
+     * @Route("/", name="vehicule_index", methods={"GET"})
      */
     public function index(VehiculeRepository $vehiculeRepository): Response
     {

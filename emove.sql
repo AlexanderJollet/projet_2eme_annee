@@ -24,11 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `vehicule`
+--
+
+CREATE TABLE `vehicule` (
+  `type` varchar(50) NOT NULL,
+  `marque` varchar(50) NOT NULL,
+  `modele` varchar(50) NOT NULL,
+  `numeroserie` varchar(15) NOT NULL,
+  `couleur` varchar(50) NOT NULL,
+  `plaqueimmatriculation` varchar(9) NOT NULL,
+  `nbkilometre` int NOT NULL,
+  `dateachat` date NOT NULL,
+  `prixachat` int NOT NULL,
+  `id` int NOT NULL,
+  `disponible` tinyint(1) NOT NULL,
+  `dureelocation` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
 -- Structure de la table `facture`
 --
 
 CREATE TABLE `facture` (
-  `id_facture` int NOT NULL
+  `id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -40,34 +59,17 @@ CREATE TABLE `facture` (
 CREATE TABLE `user` (
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
-  `date_naissance` date NOT NULL,
-  `mail` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `datedenaissance` date NOT NULL,
+  `email` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `telephone` int NOT NULL,
-  `numero_permis_conduire` varchar(11) NOT NULL,
-  `id_user` int NOT NULL,
-  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `adresse` varchar(50) NOT NULL,
+  `numeropermisconduire` varchar(11) NOT NULL,
+  `id` int NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `roles` int NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
-
---
--- Structure de la table `vehicule`
---
-
-CREATE TABLE `vehicule` (
-  `type` varchar(50) NOT NULL,
-  `marque` varchar(50) NOT NULL,
-  `modele` varchar(50) NOT NULL,
-  `numero_serie` varchar(15) NOT NULL,
-  `couleur` varchar(50) NOT NULL,
-  `immatriculation` varchar(9) NOT NULL,
-  `nb_kilometre` int NOT NULL,
-  `date_achat` date NOT NULL,
-  `prix_achat` int NOT NULL,
-  `id_vehicule` int NOT NULL,
-  `disponible` tinyint(1) NOT NULL,
-  `duree_location` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Index pour les tables déchargées
@@ -77,19 +79,19 @@ CREATE TABLE `vehicule` (
 -- Index pour la table `facture`
 --
 ALTER TABLE `facture`
-  ADD PRIMARY KEY (`id_facture`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `vehicule`
 --
 ALTER TABLE `vehicule`
-  ADD PRIMARY KEY (`id_vehicule`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -99,19 +101,19 @@ ALTER TABLE `vehicule`
 -- AUTO_INCREMENT pour la table `facture`
 --
 ALTER TABLE `facture`
-  MODIFY `id_facture` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `vehicule`
 --
 ALTER TABLE `vehicule`
-  MODIFY `id_vehicule` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
