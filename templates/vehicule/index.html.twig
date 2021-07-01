@@ -6,22 +6,7 @@
     <h1>Nos offres</h1>
         <tbody>
         {% for vehicule in vehicules %}
-        {% else %}
-            <tr>
-                <td colspan="12">Nous n'avons aucune offres actuellement</td>
-            </tr>
         {% endfor %}
-        <tr>
-            <td> <a href="{{ path('voituredispo')}}">Voitures</a> </td>
-        </tr>
-        <tr>
-            <td> <a href="{{ path('scooterdispo')}}">Scooter</a></td>
-        </tr>
-        <tr>
-            <td> <a href="{{ path('vehiculedispo')}}">Toutes nos offres</a> </td>
-        </tr>
-        
-        
         </tbody>
     </table>
 

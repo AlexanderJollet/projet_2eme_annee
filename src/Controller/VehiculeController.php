@@ -91,6 +91,7 @@ class VehiculeController extends AbstractController
     {
         return $this->render('vehicule/indexall.html.twig', [
             'vehicules' => $vehiculeRepository->findAll(),
+            var_dump($_SESSION),
         ]);
     }
 

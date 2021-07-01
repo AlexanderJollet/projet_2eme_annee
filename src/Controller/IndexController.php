@@ -18,15 +18,14 @@ class IndexController extends AbstractController
 {
 
     /**
-     * @Route("/home", name="vehicule_index", methods={"GET"})
+     * @Route("/", name="vehicule_index", methods={"GET"})
      */
     public function index(VehiculeRepository $vehiculeRepository): Response
     {
-        return $this->render('vehicule/index.html.twig', [
+        return $this->render('vehicule/indexall.html.twig', [
             'vehicules' => $vehiculeRepository->findAll(),
         ]);
     }
-}
 
      /**
      * @Route("vehicule/voiture", name="voituredispo", methods={"GET"})
@@ -50,4 +49,4 @@ class IndexController extends AbstractController
     }
 
 
-    }
+}
