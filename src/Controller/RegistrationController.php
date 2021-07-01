@@ -45,4 +45,10 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
+    public function getGlobals() {
+        return array(
+            'session'   => $_SESSION,
+        ) ;
+    }
 }
