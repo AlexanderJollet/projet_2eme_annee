@@ -4466,6 +4466,11 @@ textarea.form-control-lg {
   color:rgb(0, 0, 0);
   
 }
+.hidden-row {
+  display: none;
+  color:red;
+}
+
 .card-footer:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }

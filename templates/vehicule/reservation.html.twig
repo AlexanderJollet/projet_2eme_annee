@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}Reservation{% endblock %}
+
+{% block body %}
+{{ form_start(reservationform) }}
+        
+    <div class="form-control">
+         {{ form_label(reservationform.iduser) }}
+        {{ form_widget(reservationform.iduser) }}
+    </div>
+    <div class="form-control">
+         {{ form_label(reservationform.idvehicule) }}
+        {{ form_widget(reservationform.idvehicule) }}
+    </div>
+    <div class="form-control">
+         {{ form_label(reservationform.temps) }}
+        {{ form_widget(reservationform.temps) }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+{{ form_end(reservationform) }}
+
+
+{% endblock %}

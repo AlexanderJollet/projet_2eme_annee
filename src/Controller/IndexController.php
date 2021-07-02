@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Entity\Vehicule;
+use App\Entity\Reservation;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;

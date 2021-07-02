@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Voiture Disponibles :{% endblock %}
+{% block title %}Vehicule Disponibles :{% endblock %}
 
 
 {% block body %}
-    <h1>Voiture Disponibles :</h1>
+    <h1>Vehicules Disponibles :</h1>
     <tbody>
         <div class="card-group">
             {% for vehicule in vehicules %}
@@ -20,10 +20,8 @@
                         </p>
                         <div class="card-footer">
                             Prix par jour : {{ vehicule.prixachat }}
-                            <a class="police_black" href="{{ path('vehicule_show', {'id': vehicule.id}) }}">Voir plus</a>
-                            <a class="police_black" href="{{ path('vehicule_edit', {'id': vehicule.id}) }}">edit</a>
-                            <a class="police_black" href="{{ path('vehicule_reservation', {'id': vehicule.id}) }}">Réservez</a>
-
+                            <a class="police_black" href="{{ path('vehicule_show', {'id': vehicule.id}) }}">show</a>
+                             <a class="police_black" href="{{ path('vehicule_edit', {'id': vehicule.id}) }}">edit</a>
                         </div>
                 </div>
             </div>

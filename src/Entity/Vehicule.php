@@ -169,6 +169,8 @@ class Vehicule
         return $this;
     }
 
+    
+
     public function getPrixAchat(): ?int
     {
         return $this->prixachat;
