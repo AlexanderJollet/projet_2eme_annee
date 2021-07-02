@@ -46,9 +46,4 @@ class RegistrationController extends AbstractController
         ]);
     }
 
-    public function getGlobals() {
-        return array(
-            'session'   => $_SESSION,
-        ) ;
-    }
 }
