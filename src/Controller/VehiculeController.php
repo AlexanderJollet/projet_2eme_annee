@@ -99,7 +99,7 @@ class VehiculeController extends AbstractController
     /**
      * @Route("/{id}/reservation", name="vehicule_reservation", methods={"GET","POST"})
      */
-    public function reservation(Request $request, Vehicule $vehicule): Response
+    public function reservation(Request $request, Vehicule $vehicule, int $id): Response
     {
         $reservation = new Reservation();
         $form = $this->createForm(reservationType::class, $reservation);
@@ -108,7 +108,13 @@ class VehiculeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($reservation);
-            $entityManager->flush();;
+            $entityManager->flush();
+            
+            $entityManager = $this->getDoctrine()->getManager();
+            $product = $entityManager->getRepository(Vehicule::class)->find($id);
+            $product->setDisponible(0);
+            $entityManager->flush();
+            
 
             return $this->redirectToRoute('vehicule_index');
         }
@@ -119,5 +125,24 @@ class VehiculeController extends AbstractController
         ]);
     }
 
+    public function update(int $id): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $product->setName('New product name!');
+        $entityManager->flush();
+
+        return $this->redirectToRoute('product_show', [
+            'id' => $product->getId()
+        ]);
+    }
+    
    
 }

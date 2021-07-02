@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\DateTime;
 use App\Form\Vehicule1Type;
 use App\Repository\VehiculeRepository;
+use App\Repository\ReservationRepository;
 
 class IndexController extends AbstractController
 {
@@ -31,10 +32,12 @@ class IndexController extends AbstractController
      /**
      * @Route("vehicule/voiture", name="voituredispo", methods={"GET"})
      */
-    public function voituredispo(VehiculeRepository $vehiculeRepository): Response
+    public function voituredispo(VehiculeRepository $vehiculeRepository, ReservationRepository $ReservationRepository): Response
     {
         return $this->render('vehicule/indexvoiture.html.twig', [
             'vehicules' => $vehiculeRepository->findBy(['type' => 'voiture']),
+            'reservations' => $ReservationRepository->findAll(),
+
         ]);
     }
 
@@ -47,6 +50,14 @@ class IndexController extends AbstractController
         return $this->render('vehicule/indexscooter.html.twig', [
             'vehicules' => $vehiculeRepository->findBy(['type' => 'Scooter']),
         ]);
+    }
+
+    /**
+     * @Route("notuser", name="notuser", methods={"GET"})
+     */
+    public function notuser(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('notuser.html.twig');
     }
 
 

@@ -3,17 +3,10 @@
 
 {% block body %}
 {{ form_start(reservationform) }}
-        
+        {{ form_widget(reservationform.iduser, { 'attr': {'class': 'hidden-row' , 'value': app.user.id} }) }}
+        {{ form_widget(reservationform.idvehicule, { 'attr': {'class': 'hidden-row' , 'value': vehicule.id } }) }}
     <div class="form-control">
-         {{ form_label(reservationform.iduser) }}
-        {{ form_widget(reservationform.iduser) }}
-    </div>
-    <div class="form-control">
-         {{ form_label(reservationform.idvehicule) }}
-        {{ form_widget(reservationform.idvehicule) }}
-    </div>
-    <div class="form-control">
-         {{ form_label(reservationform.temps) }}
+         Temps souhaité de location (jour):
         {{ form_widget(reservationform.temps) }}
     </div>
     
