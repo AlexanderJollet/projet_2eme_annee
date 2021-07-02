@@ -124,25 +124,5 @@ class VehiculeController extends AbstractController
             'reservationform' => $form->createView(),
         ]);
     }
-
-    public function update(int $id): Response
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        
-
-        if (!$product) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-
-        $product->setName('New product name!');
-        $entityManager->flush();
-
-        return $this->redirectToRoute('product_show', [
-            'id' => $product->getId()
-        ]);
-    }
-    
    
 }
