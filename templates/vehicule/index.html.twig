@@ -36,9 +36,6 @@
   </div>
 </div>
         </tbody>
-    {% if app.user %}
-        {% if app.user.roles[0] == 2 %}
-            <a href="{{ path('vehicule_new') }}">Create new</a>
-        {% endif %}
-    {% endif %}
+    
+    
 {% endblock %}
