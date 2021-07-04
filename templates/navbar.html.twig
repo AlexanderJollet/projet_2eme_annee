@@ -11,5 +11,11 @@
         <a href=" {{ path('app_login') }}"> Log in</a>
         <a href=" {{ path('app_register') }} "> Sign up </a>
     {% endif %}
+    {% if app.user %}
+        {% if app.user.roles[0] == 2 %}
+            <a href="{{ path('vehicule_new') }}">Creer une offre</a>
+        {% endif %}
+    {% endif %}
+
 
 </div>
