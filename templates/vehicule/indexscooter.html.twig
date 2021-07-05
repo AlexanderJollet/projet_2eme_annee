@@ -47,7 +47,11 @@
             {% endfor %}
       
 
-
-    <a href="{{ path('vehicule_new') }}">Créer</a>
+     {% if app.user %}
+        {% if app.user.roles[0] == 2 %}
+            <a href="{{ path('vehicule_new') }}">Créer</a>
+        {% endif %}
+    {% endif %}
+    
 
 {% endblock %}
