@@ -60,5 +60,19 @@ class IndexController extends AbstractController
         return $this->render('notuser.html.twig');
     }
 
+    /**
+     * @Route("/reservations", name="toutelesreservations", methods={"GET"})
+     */
+    public function touteslesreservations(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('reservation/allreservations.html.twig', [
+            'vehicules' => $vehiculeRepository->findAll(),
+        ]);
+    }
+
+    
+
+    
+
 
     }

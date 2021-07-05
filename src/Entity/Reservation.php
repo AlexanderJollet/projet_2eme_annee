@@ -32,6 +32,19 @@ class Reservation
      */
     private $temps;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $prix;
+    
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $modelevehicule;
+
+    
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +82,29 @@ class Reservation
     public function setTemps(int $temps): self
     {
         $this->temps = $temps;
+
+        return $this;
+    }
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $prix): self
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getModelevehicule(): ?string
+    {
+        return $this->modelevehicule;
+    }
+
+    public function setModelevehicule(string $modelevehicule): self
+    {
+        $this->modelevehicule = $modelevehicule;
 
         return $this;
     }

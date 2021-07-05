@@ -21,8 +21,18 @@
             <a href="{{ path('user') }}">Tout les users</a>
         {% endif %}
     {% endif %}
+    {% if app.user %}
+        {% if app.user.roles[0] == 1 %}
+            <a href="{{ path('mesreservations', {'idus': app.user.id}) }}">Mes réservations</a>
+        {% endif %}
+    {% endif %}
+    {% if app.user %}
+        {% if app.user.roles[0] == 2 %}
+            <a href="{{ path('toutelesreservations') }}">Toutes les reservations</a>
+        {% endif %}
+    {% endif %}
 
-    <img src="{{ asset('assets/emove.png') }}"/>
+    <img style="width:50px" src="{{ asset('css/assets/emove.png') }}"/>
 
 
 </div>

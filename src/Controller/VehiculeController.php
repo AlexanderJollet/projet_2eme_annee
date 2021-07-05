@@ -11,6 +11,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\UserRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Validator\Constraints\DateTime;
+use App\Repository\ReservationRepository;
 
 /**
  * @Route("/vehicule")
@@ -51,6 +58,8 @@ class VehiculeController extends AbstractController
             'vehicule' => $vehicule,
         ]);
     }
+
+    
 
     /**
      * @Route("/{id}/edit", name="vehicule_edit", methods={"GET","POST"})
@@ -96,8 +105,12 @@ class VehiculeController extends AbstractController
         ]);
     }
 
+    
+
+
+
     /**
-     * @Route("/{id}/reservation", name="vehicule_reservation", methods={"GET","POST"})
+     * @Route("/user/{id}/reservation", name="vehicule_reservation", methods={"GET","POST"})
      */
     public function reservation(Request $request, Vehicule $vehicule, int $id): Response
     {
@@ -106,9 +119,10 @@ class VehiculeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager = $this->getDoctrine()->getManager(); 
             $entityManager->persist($reservation);
             $entityManager->flush();
+
             
             $entityManager = $this->getDoctrine()->getManager();
             $product = $entityManager->getRepository(Vehicule::class)->find($id);
@@ -124,5 +138,9 @@ class VehiculeController extends AbstractController
             'reservationform' => $form->createView(),
         ]);
     }
+
+    
+
+    
    
 }
