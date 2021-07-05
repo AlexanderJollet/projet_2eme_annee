@@ -3,9 +3,16 @@
 {% block title %}Nouveau Vehicule{% endblock %}
 
 {% block body %}
-    <h1>Création d'un Vehicule</h1>
+    {% if app.user %}
+        {% if app.user.roles[0] == 2 %}
+                <h1>Création d'un Vehicule</h1>
+                    {{ include('vehicule/_form.html.twig') }}
+                    <a href="{{ path('vehicule_index') }}">Annuler</a>
+        {% else %}
+            <h1> Vous n'êtes pas autorisé à visualiser cette page </h1>
+        {% endif %}
+    {% else %}
+        <h1> Vous n'êtes pas autorisé à visualiser cette page </h1>
+    {% endif %}
 
-    {{ include('vehicule/_form.html.twig') }}
-
-    <a href="{{ path('vehicule_index') }}">Annuler</a>
 {% endblock %}

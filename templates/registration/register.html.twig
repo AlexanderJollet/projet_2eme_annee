@@ -2,10 +2,12 @@
 
 {% block title %}Inscription{% endblock %}
 
+
 {% block body %}
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
+
 
     <h1>Inscription</h1>
  
@@ -30,7 +32,7 @@
             {{ form_widget(registrationForm.adresse) }}
         </div>
          <div class="form-control">
-            <i class="fa fa-calendar"></i> {{ form_label(registrationForm.datedenaissance) }}
+             <i class="fa fa-calendar"></i> {{ form_label(registrationForm.datedenaissance) }}
             {{ form_widget(registrationForm.datedenaissance) }}
         </div>
         <div class="form-control">

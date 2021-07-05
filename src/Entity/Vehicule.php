@@ -67,6 +67,11 @@ class Vehicule
      */
     private $dureelocation;
 
+     /**
+     * @ORM\Column(type="integer")
+     */
+    private $disponible;
+
 
     public function getId(): ?int
     {
@@ -168,6 +173,20 @@ class Vehicule
 
         return $this;
     }
+
+    public function getDisponible(): ?string
+    {
+        return $this->disponible;
+    }
+
+    public function setDisponible(string $disponible): self
+    {
+        $this->disponible = $disponible;
+
+        return $this;
+    }
+
+    
 
     public function getPrixAchat(): ?int
     {

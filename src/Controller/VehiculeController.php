@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Vehicule;
+use App\Entity\Reservation;
 use App\Form\Vehicule1Type;
+use App\Form\ReservationType;
 use App\Repository\VehiculeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -94,5 +96,33 @@ class VehiculeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/{id}/reservation", name="vehicule_reservation", methods={"GET","POST"})
+     */
+    public function reservation(Request $request, Vehicule $vehicule, int $id): Response
+    {
+        $reservation = new Reservation();
+        $form = $this->createForm(reservationType::class, $reservation);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($reservation);
+            $entityManager->flush();
+            
+            $entityManager = $this->getDoctrine()->getManager();
+            $product = $entityManager->getRepository(Vehicule::class)->find($id);
+            $product->setDisponible(0);
+            $entityManager->flush();
+            
+
+            return $this->redirectToRoute('vehicule_index');
+        }
+
+        return $this->render('vehicule/reservation.html.twig', [
+            'vehicule' => $vehicule,
+            'reservationform' => $form->createView(),
+        ]);
+    }
    
 }
