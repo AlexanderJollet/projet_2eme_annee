@@ -3,6 +3,13 @@
 {% block title %}Edit Vehicule{% endblock %}
 
 
+{% block body %}
+    <h1>Modification du véhicule</h1>
+
+    {{ include('vehicule/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('vehicule_index') }}">Annuler</a>
+
 
 {% block body %}
     {% if app.user %}

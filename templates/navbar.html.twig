@@ -6,16 +6,17 @@
     <a href="{{ path('scooterdispo')}}">Scooter</a></a>
     <a href="{{ path('vehiculedispo')}}">Toutes nos offres</a>
     {% if app.user %}
-                <a href=" {{ path('app_logout') }}"> Logout</a>
+                <a href=" {{ path('app_logout') }}"> Déconnexion</a>
     {% else %}
-        <a href=" {{ path('app_login') }}"> Log in</a>
-        <a href=" {{ path('app_register') }} "> Sign up </a>
+        <a href=" {{ path('app_login') }}"> Se Connecter</a>
+        <a href=" {{ path('app_register') }} "> Inscription </a>
     {% endif %}
     {% if app.user %}
         {% if app.user.roles[0] == 2 %}
-            <a href="{{ path('vehicule_new') }}">Creer une offre</a>
+            <a href="{{ path('vehicule_new') }}">Créer une offre</a>
         {% endif %}
     {% endif %}
+    <img src="{{ asset('assets/emove.png') }}"/>
 
 
 </div>
