@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Vehicule{% endblock %}
-
+{% block title %}Nouveau Vehicule{% endblock %}
 
 {% block body %}
     {% if app.user %}
         {% if app.user.roles[0] == 2 %}
-                <h1>Create new Vehicule</h1>
+                <h1>Création d'un Vehicule</h1>
                     {{ include('vehicule/_form.html.twig') }}
-                    <a href="{{ path('vehicule_index') }}">back to list</a>
+                    <a href="{{ path('vehicule_index') }}">Annuler</a>
         {% else %}
             <h1> Vous n'êtes pas autorisé à visualiser cette page </h1>
         {% endif %}
     {% else %}
         <h1> Vous n'êtes pas autorisé à visualiser cette page </h1>
     {% endif %}
+
 {% endblock %}
