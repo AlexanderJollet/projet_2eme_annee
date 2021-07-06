@@ -36,7 +36,6 @@ class IndexController extends AbstractController
     {
         return $this->render('vehicule/indexvoiture.html.twig', [
             'vehicules' => $vehiculeRepository->findBy(['type' => 'voiture']),
-            'reservations' => $ReservationRepository->findAll(),
 
         ]);
     }
