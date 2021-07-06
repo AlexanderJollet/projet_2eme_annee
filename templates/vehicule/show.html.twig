@@ -1,16 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Vehicule{% endblock %}
 
 {% block body %}
     <h1>Vehicule</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ vehicule.id }}</td>
-            </tr>
             <tr>
                 <th>Type</th>
                 <td>{{ vehicule.type }}</td>
@@ -24,31 +19,15 @@
                 <td>{{ vehicule.modele }}</td>
             </tr>
             <tr>
-                <th>Numero_serie</th>
-                <td>{{ vehicule.numeroSerie }}</td>
-            </tr>
-            <tr>
                 <th>Couleur</th>
                 <td>{{ vehicule.couleur }}</td>
             </tr>
             <tr>
-                <th>Plaqueimmatriculation</th>
-                <td>{{ vehicule.plaqueimmatriculation }}</td>
-            </tr>
-            <tr>
-                <th>Nbkilometre</th>
-                <td>{{ vehicule.nbkilometre }}</td>
-            </tr>
-            <tr>
-                <th>Dateachat</th>
-                <td>{{ vehicule.dateachat }}</td>
-            </tr>
-            <tr>
-                <th>Prixachat</th>
+                <th>Prix par jour</th>
                 <td>{{ vehicule.prixachat }}</td>
             </tr>
             <tr>
-                <th>Dureelocation</th>
+                <th>Durée de la location</th>
                 <td>{{ vehicule.dureelocation }}</td>
             </tr>
         </tbody>
@@ -57,7 +36,7 @@
     <a href="{{ path('vehicule_index') }}">Retour</a>
     {% if app.user %}
         {% if app.user.roles[0] == 2 %}
-            <a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}">edit</a>
+            <a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}">Edit</a>
         {% endif %}
     {% endif %}
 
