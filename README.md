@@ -8,7 +8,7 @@ docker, docker-compose
 ## Installation
 
 ```bash
-git clone 'repo nom'
+git clone https://github.com/AlexanderJollet/projet_2eme_annee.git
 ```
 ```bash
 cd projet_2eme_annee/
