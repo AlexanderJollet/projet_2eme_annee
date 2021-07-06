@@ -20,4 +20,4 @@ docker-compose up -d
 ## Adresse Locale pour accéder à la BDD et au site 
 
 http://localhost:8080/ (BDD)
-http://localhost:5000/ (PORT)
+http://localhost:5000/ (Website)
