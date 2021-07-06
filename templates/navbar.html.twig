@@ -1,10 +1,15 @@
 <link href="{{ asset('css/navbar.css') }}" type="text/css" rel="stylesheet">
-
+<img class='navimg' src="{{ asset('css/assets/emove.png') }}"/>
 <div class="topnav">
     <a class="active" href="/">Accueil</a>
     <a href="{{ path('voituredispo')}}">Voitures</a>
     <a href="{{ path('scooterdispo')}}">Scooter</a></a>
     <a href="{{ path('vehiculedispo')}}">Toutes nos offres</a>
+    {% if app.user %}
+        {% if app.user.roles[0] == 2 %}
+            <a href="{{ path('vehicule_new') }}">Créer une offre</a>
+        {% endif %}
+    {% endif %}
     {% if app.user %}
                 <a href=" {{ path('app_logout') }}"> Déconnexion</a>
     {% else %}
@@ -31,8 +36,6 @@
             <a href="{{ path('toutelesreservations') }}">Toutes les reservations</a>
         {% endif %}
     {% endif %}
-
-    <img style="width:50px" src="{{ asset('css/assets/emove.png') }}"/>
 
 
 </div>
