@@ -21,3 +21,10 @@ docker-compose up -d
 
 http://localhost:8080/ (BDD)
 http://localhost:5000/ (Website)
+
+
+## Running test
+
+```bash
+php bin/phpunit --testdox
+```
