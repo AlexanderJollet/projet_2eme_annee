@@ -21,6 +21,8 @@ class ReservationType extends AbstractType
             ->add('iduser')
             ->add('idvehicule')
             ->add('temps')
+            ->add('modelevehicule')
+            ->add('prix')
         ;
     }
 

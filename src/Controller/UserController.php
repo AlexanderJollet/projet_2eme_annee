@@ -12,6 +12,14 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Repository\UserRepository;
 use App\Entity\User;
 use App\Form\UserType;
+use App\Entity\Reservation;
+use App\Entity\Vehicule;
+use App\Repository\VehiculeRepository;
+use App\Repository\ReservationRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Validator\Constraints\DateTime;
+use App\Form\Vehicule1Type;
+use App\Form\ReservationType;
 
 class UserController extends AbstractController
 {
@@ -58,4 +66,21 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index');
     }
+
+    /**
+     * @Route("user/{idus}/reservations", name="mesreservations", methods={"GET","POST"})
+     */
+    public function mesreservations(Request $request, VehiculeRepository $vehiculerepository, ReservationRepository $reservationrepository,  int $idus): Response
+    {
+
+        $reservation = $reservationrepository->findBy(['iduser' => $idus]);
+        
+        
+        
+        return $this->render('reservation/mesreservations.html.twig', [
+            'vehicules' => $reservation,
+        ]);
+    }
+
+   
 }

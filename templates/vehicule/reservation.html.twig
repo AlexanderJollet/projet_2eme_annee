@@ -30,7 +30,9 @@
 
 {{ form_start(reservationform) }}
         {{ form_widget(reservationform.iduser, { 'attr': {'class': 'hidden-row' , 'value': app.user.id} }) }}
+        {{ form_widget(reservationform.modelevehicule, { 'attr': {'class': 'hidden-row' , 'value': vehicule.modele} }) }}
         {{ form_widget(reservationform.idvehicule, { 'attr': {'class': 'hidden-row' , 'value': vehicule.id } }) }}
+        
     <div class="form-control">
          Temps souhaité de location (jour):
         {{ form_widget(reservationform.temps) }}
