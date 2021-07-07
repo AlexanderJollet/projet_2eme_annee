@@ -2,7 +2,7 @@
 
 <div class="topnav">
     <a class="active" href="/">Accueil</a>
-    <a href="{{ path('voituredispo')}}">Voitures</a>
+    <a href="{{ path('voituredispo')}}">Voiture</a>
     <a href="{{ path('scooterdispo')}}">Scooter</a></a>
     <a href="{{ path('vehiculedispo')}}">Toutes nos offres</a>
     {% if app.user %}
@@ -12,7 +12,7 @@
     {% endif %}
      {% if app.user %}
         {% if app.user.roles[0] == 2 %}
-            <a href="{{ path('user') }}">Tout les users</a>
+            <a href="{{ path('user') }}">Tous les users</a>
         {% endif %}
     {% endif %}
     {% if app.user %}
