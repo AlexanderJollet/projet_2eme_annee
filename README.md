@@ -16,6 +16,9 @@ cd projet_2eme_annee/
 ```bash
 docker-compose up -d
 ```
+```bash
+composer install
+```
 Puis importer le fichier emove.sql dans la base de donnée "emove" 
 
 ## Adresse Locale pour accéder à la BDD et au site 
