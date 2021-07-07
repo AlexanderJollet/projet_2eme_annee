@@ -21,17 +21,17 @@
                                 </p>
                                 <div class="card-footer">
                                     Prix par jour : {{ vehicule.prixachat }}
-                                    <a class="police_black" href="{{ path('vehicule_show', {'id': vehicule.id}) }}">Voir plus</a>
+                                    <a class="police_black" href="{{ path('vehicule_show', {'id': vehicule.id}) }}">Voir</a>
                                     {% if app.user %}
                                         {% if app.user.roles[0] == 2 %}
-                                            <a class="police_black" href="{{ path('vehicule_edit', {'id': vehicule.id}) }}">edit</a>
+                                            <a class="police_black" href="{{ path('vehicule_edit', {'id': vehicule.id}) }}">Edit</a>
                                         {% endif %}
                                     {% endif %}
                                     
                                     {% if app.user %}
-                                        <a class="police_black" href="{{ path('vehicule_reservation', {'id': vehicule.id}) }}">Réservez</a>
+                                        <a class="police_black" href="{{ path('vehicule_reservation', {'id': vehicule.id}) }}">Réserver</a>
                                     {% else %}
-                                        <a class="police_black" href="{{ path('notuser') }}">Réservez</a>
+                                        <a class="police_black" href="{{ path('notuser') }}">Réserver</a>
                                     {% endif %}
                                     
 
